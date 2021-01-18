@@ -34,7 +34,7 @@ const List = mongoose.model("List", listSchema);
 app.get("/", function (req, res) {
   Item.find({}, function (err, foundItems) {
     if (foundItems.length === 0) {
-      Item.insertMany(defaultItems, function (err) {
+      Item.insertMany(defaultItems, function () {
         if (!err) {
           console.log("Successfully saved default items to DB.");
         }
